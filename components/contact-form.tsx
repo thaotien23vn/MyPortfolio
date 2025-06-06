@@ -5,6 +5,7 @@ import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Send } from "lucide-react"
+import emailjs from 'emailjs-com'
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -19,16 +20,35 @@ export function ContactForm() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    const form = e.currentTarget
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value
 
-    toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    })
-
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          name,
+          email,
+          message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      )
+      toast({
+        title: 'Message sent!',
+        description: "Thanks for reaching out. I'll get back to you soon.",
+      })
+      form.reset()
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Failed to send message. Please try again later.',
+        variant: 'destructive',
+      })
+    }
     setIsSubmitting(false)
-    e.currentTarget.reset()
   }
 
   return (
@@ -47,6 +67,7 @@ export function ContactForm() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <Input
+                name="name"
                 placeholder="Your Name"
                 required
                 className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
@@ -54,6 +75,7 @@ export function ContactForm() {
             </div>
             <div className="space-y-2">
               <Input
+                name="email"
                 type="email"
                 placeholder="Your Email"
                 required
@@ -61,14 +83,8 @@ export function ContactForm() {
               />
             </div>
             <div className="space-y-2">
-              <Input
-                placeholder="Subject"
-                required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
-              />
-            </div>
-            <div className="space-y-2">
               <Textarea
+                name="message"
                 placeholder="Your Message"
                 rows={5}
                 required
