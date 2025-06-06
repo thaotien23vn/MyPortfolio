@@ -47,18 +47,22 @@ export default function Portfolio() {
             4th-year student at Industrial University of Ho Chi Minh City.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <Button className="relative overflow-hidden group bg-gradient-to-r from-purple-500 to-pink-500 border-0">
-                <span className="relative z-10 flex items-center">
-                  View Projects <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-              </Button>
-              <Button
-                variant="outline"
-                className="border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500"
-              >
-                Contact Me
-              </Button>
+              <a href="#projects">
+                <Button className="relative overflow-hidden group bg-gradient-to-r from-purple-500 to-pink-500 border-0">
+                  <span className="relative z-10 flex items-center">
+                    View Projects <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                </Button>
+              </a>
+              <a href="#contact">
+                <Button
+                  variant="outline"
+                  className="border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500"
+                >
+                  Contact Me
+                </Button>
+              </a>
             </div>
             <div className="flex gap-4 pt-4">
               <Link href="https://github.com/thaotien23vn" target="_blank" rel="noopener noreferrer">
@@ -193,16 +197,16 @@ I'm excited to contribute my combined skills in development, analysis, and testi
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16">
             <SkillBadge name="ReactJS" level={70} />
             <SkillBadge name="React Native" level={80} />
-            <SkillBadge name="TypeScript" level={75} />
+            <SkillBadge name="TypeScript" level={65} />
             <SkillBadge name="Next.js" level={60} />
             <SkillBadge name="Node.js" level={60} />
             <SkillBadge name="HTML/CSS" level={90} />
-            <SkillBadge name="Tailwind CSS" level={70} />
-            <SkillBadge name="MongoDB" level={75} />
-            <SkillBadge name="MySQL" level={70} />
+            <SkillBadge name="Tailwind CSS" level={60} />
+            <SkillBadge name="MongoDB" level={65} />
+            <SkillBadge name="MySQL" level={60} />
             <SkillBadge name="Figma" level={85} />
             <SkillBadge name="Docker" level={60} />
-            <SkillBadge name="Git" level={80} />
+            <SkillBadge name="Git" level={70} />
           </div>
         </div>
       </section>
@@ -242,9 +246,9 @@ Wrote feature descriptions, defined use cases, and supported usability testing w
               title="Portfolio Website"
               description="This portfolio website built with Next.js and Tailwind CSS."
               tags={["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"]}
-              image="/infor.jpg"
-              demoUrl="https://example.com"
-              repoUrl="https://github.com"
+              image="/infor.png"
+              demoUrl="tranthaotien.netlify.app"
+              repoUrl="https://github.com/thaotien23vn/MyPortfolio.git"
             />
           </div>
         </div>
