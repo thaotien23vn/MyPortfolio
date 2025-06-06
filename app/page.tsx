@@ -244,7 +244,9 @@ Wrote feature descriptions, defined use cases, and supported usability testing w
             />
             <ProjectCard
               title="Portfolio Website"
-              description="This portfolio website built with Next.js and Tailwind CSS."
+              description="MyPortfolio – A modern personal portfolio website built with Next.js and Tailwind CSS.
+Features smooth animations with Framer Motion and is developed using TypeScript.
+Showcases personal information, skills, featured projects, and contact – all in a responsive, fast, and easily customizable interface."
               tags={["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"]}
               image="/infor.png"
               demoUrl="tranthaotien.netlify.app"
